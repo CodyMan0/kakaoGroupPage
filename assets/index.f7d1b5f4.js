@@ -97,7 +97,7 @@ Error generating stack: `+o.message+`
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-`,J0=()=>{const[e,t]=F.exports.useState({email:"",password:""}),n=o=>{o.preventDefault(),console.log("s")},r=o=>{const{name:i,value:u}=o.currentTarget;t({...e,[i]:u})},l=async o=>{o.preventDefault()};return yr(G0,{children:[yr(rv,{children:[V(tv,{children:"\uB85C\uADF8\uC778"}),yr(nv,{onSubmit:o=>n(o),children:[V(Ja,{htmlFor:"email",children:"email"}),V(qa,{type:"email",name:"email",value:e.email,placeholder:"\uC774\uBA54\uC77C",onChange:o=>r(o)}),V(Ja,{htmlFor:"password",children:"password"}),V(qa,{type:"password",name:"password",value:e.password,placeholder:"\uBE44\uBC00\uBC88\uD638",onChange:o=>r(o)}),V(lv,{type:"submit",children:"\uB85C\uADF8\uC778"})]})]}),V(ev,{}),V(q0,{onClick:o=>l(o),children:V(b0,{src:"./kakaoLargeLogin.png",alt:"df"})})]})},q0=dt.div`
+`,J0=()=>{const[e,t]=F.exports.useState({email:"",password:""}),n=o=>{o.preventDefault(),console.log("s")},r=o=>{const{name:i,value:u}=o.currentTarget;t({...e,[i]:u})},l=async o=>{o.preventDefault()};return console.log("hello"),yr(G0,{children:[yr(rv,{children:[V(tv,{children:"\uB85C\uADF8\uC778"}),yr(nv,{onSubmit:o=>n(o),children:[V(Ja,{htmlFor:"email",children:"email"}),V(qa,{type:"email",name:"email",value:e.email,placeholder:"\uC774\uBA54\uC77C",onChange:o=>r(o)}),V(Ja,{htmlFor:"password",children:"password"}),V(qa,{type:"password",name:"password",value:e.password,placeholder:"\uBE44\uBC00\uBC88\uD638",onChange:o=>r(o)}),V(lv,{type:"submit",children:"\uB85C\uADF8\uC778"})]})]}),V(ev,{}),V(q0,{onClick:o=>l(o),children:V(b0,{src:"./kakaoLargeLogin.png",alt:"df"})})]})},q0=dt.div`
   margin: 0 auto;
   margin-left: 50px;
   width: 90%;
