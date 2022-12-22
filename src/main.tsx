@@ -7,7 +7,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <LoginProvider>
       <App />
-
     </LoginProvider>
   </React.StrictMode>
 );
