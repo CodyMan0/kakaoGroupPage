@@ -1,6 +1,10 @@
+import axios from 'axios';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { getAuthorization } from '../api/getAuthorization';
+
 import Container from '../components/Container';
+import { KAKAO_AUTH_URL } from '../constants/config';
 
 const SignIn = () => {
   const [signInInfo, setSignInInfo] = useState({
@@ -18,16 +22,17 @@ const SignIn = () => {
     setSignInInfo({ ...signInInfo, [name]: value });
   };
 
-  const onClickHandler = async (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-  };
+  // const getAuthorization = async () => {
+  //   const response = axios.get(
+  //     `https://kauth.kakao.com/oauth/authorize?client_id=${LOGIN.REST_API_KEY}&redirect_uri=${LOGIN.REDIRECT_URI}&response_type=code HTTP/1.1`
+  //   );
+  //   console.log('Res', response);
+  // };
 
+  console.log('rendering');
   return (
     <Container>
       <Wrapper>
-        <Header>로그인</Header>
         <Header>로그인</Header>
         <Form onSubmit={e => onHandleSubmit(e)}>
           <Label htmlFor="email">email</Label>
@@ -51,13 +56,13 @@ const SignIn = () => {
         </Form>
       </Wrapper>
       <P></P>
-      <ImgContainer onClick={e => onClickHandler(e)}>
-        <Img src="./kakaoLargeLogin.png" alt="df" />
-      </ImgContainer>
+      <KakaoLoginWrapper href={KAKAO_AUTH_URL}>
+        <Img src="./kakaoLargeLogin.png" alt="kakaoLoginImg" />
+      </KakaoLoginWrapper>
     </Container>
   );
 };
-const ImgContainer = styled.div`
+const KakaoLoginWrapper = styled.a`
   margin: 0 auto;
   margin-left: 50px;
   width: 90%;
@@ -65,6 +70,7 @@ const ImgContainer = styled.div`
 
 const Img = styled.img`
   width: inherit;
+  cursor: pointer;
 `;
 
 const P = styled.p`

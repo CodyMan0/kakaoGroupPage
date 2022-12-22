@@ -1,6 +1,5 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { LOGIN } from '../constants/contants';
+import { KAKAO_TOKEN_URL, LOGIN } from '../constants/config';
 
 export interface Status {
   data: string;
@@ -8,18 +7,20 @@ export interface Status {
   error: string;
 }
 
-const useAxios = () => {
+const useAxios = (code: string) => {
   const [response, setResponse] = useState<Status>({
     data: '',
     isLoading: false,
     error: '',
   });
 
-  const axiosKakaoLogin = async () => {
+  const getLogin = async () => {
     try {
       setResponse(prev => ({ ...prev, isLoading: true }));
-      const results = await axios(
-        `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${LOGIN.REST_API_KEY}&redirect_uri=${LOGIN.REDIRECT_URI}`
+      const results = await fetch(
+        `${KAKAO_TOKEN_URL}?grant_type=authorization_code&client_id=${
+          import.meta.env.VITE_CLIENT_KEY
+        }&redirect_uri=${LOGIN.REDIRECT_URI}&code=${code}`
       );
       console.log(results);
     } catch (error) {
@@ -31,9 +32,9 @@ const useAxios = () => {
   };
 
   useEffect(() => {
-    axiosKakaoLogin();
+    getLogin();
   }, []);
 
-  return [axiosKakaoLogin, response];
+  return [getLogin, response];
 };
 export default useAxios;
