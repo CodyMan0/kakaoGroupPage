@@ -1,7 +1,7 @@
 import { createContext, useState, useMemo, useContext } from 'react';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
-export const LoginContext = createContext<unknown>(null);
+export const LoginContext = createContext<any>(null);
 
 export const LoginProvider = ({ children }: any) => {
   const [isLoggedIn, setIsLoggedIn] = useState(

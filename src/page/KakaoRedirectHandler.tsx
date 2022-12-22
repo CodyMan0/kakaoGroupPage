@@ -4,7 +4,7 @@ import { KAKAO_TOKEN_URL, LOGIN } from '../constants/config';
 import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
 const KakaoRedirectHandler = () => {
-  const navigate = useNavigate();
+  const navigator = useNavigate();
   const code = new URL(location.href).searchParams.get('code');
 
   const requestUrl = `${KAKAO_TOKEN_URL}?grant_type=authorization_code&client_id=${
@@ -26,7 +26,7 @@ const KakaoRedirectHandler = () => {
             console.log(!getLocalStorage('token'));
             localStorage.setItem('token', result.access_token);
           }
-          navigate('/home');
+          navigator('/home');
         });
     };
     getRequest();

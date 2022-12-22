@@ -1,10 +1,7 @@
-import axios from 'axios';
 import { useState } from 'react';
-import styled from 'styled-components';
-import { getAuthorization } from '../api/getAuthorization';
-
 import Container from '../components/Container';
 import { KAKAO_AUTH_URL } from '../constants/config';
+import styled from 'styled-components';
 
 const SignIn = () => {
   const [signInInfo, setSignInInfo] = useState({
