@@ -8,6 +8,14 @@ const Layout = ({ children }: any) => {
 export default Layout;
 
 const MainContainer = styled.div`
-  width: 1200px;
   margin: 0 auto;
+  @media ${props => props.theme.laptop} {
+    width: 100%;
+  }
+  @media ${props => props.theme.desktop} {
+    width: 100%;
+  }
+  @media ${props => props.theme.mobile} {
+    width: 100%;
+  } ;
 `;
