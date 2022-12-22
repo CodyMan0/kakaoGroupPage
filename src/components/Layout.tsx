@@ -8,14 +8,8 @@ const Layout = ({ children }: any) => {
 export default Layout;
 
 const MainContainer = styled.div`
-  margin: 0 auto;
-  @media ${props => props.theme.laptop} {
-    width: 100%;
-  }
-  @media ${props => props.theme.desktop} {
-    width: 100%;
-  }
-  @media ${props => props.theme.mobile} {
-    width: 100%;
-  } ;
+  position: relative;
+  width: 100vw;
+  height: 300vh;
+  background: linear-gradient(rgb(255, 255, 255) 0%, rgb(250, 250, 255) 10%);
 `;

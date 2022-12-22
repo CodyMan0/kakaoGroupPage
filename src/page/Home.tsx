@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+import Header from '../components/Header';
 import Layout from '../components/Layout';
+import MainContents from '../components/MainContents';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
 const Home = () => {
@@ -7,18 +9,10 @@ const Home = () => {
 
   return (
     <Layout>
-      <Nav>
-        <h1>몽땅보내</h1>
-        <ul>
-          <li>로그인</li>
-        </ul>
-      </Nav>
+      <Header />
+      <MainContents />
     </Layout>
   );
 };
 
 export default Home;
-
-const Nav = styled.nav`
-  display: flex;
-`;

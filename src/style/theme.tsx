@@ -3,6 +3,7 @@ const size = {
   laptop: '1460px',
   desktop: '1700px',
 };
+
 const theme = {
   mobile: `(max-width:${size.mobile})`,
   laptop: `(max-width:${size.laptop})`,

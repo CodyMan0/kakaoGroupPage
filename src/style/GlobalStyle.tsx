@@ -5,9 +5,11 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
     box-sizing: border-box;
+    -webkit-font-smoothing: inherit;
   }
   body {
     background-color: #ffffff;
+    font-size: 14px;
   }
   a {
   color: inherit;

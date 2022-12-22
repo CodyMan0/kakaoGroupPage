@@ -8,8 +8,6 @@ const Container = ({ children }: any) => {
   );
 };
 const MainContainer = styled.div`
-  background-color: #e9ecef;
-  height: 100vh;
   padding-top: 40px;
 `;
 
