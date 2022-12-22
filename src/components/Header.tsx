@@ -25,14 +25,14 @@ const NavContainer = styled.div`
 `;
 
 const Logo = styled.h1`
-  font-size: 22px;
+  font-size: 35px;
+  font-family: 'Gaegu';
 `;
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 30px 36px 30px 30px;
 
   @media ${props => props.theme.mobile} {
