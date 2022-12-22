@@ -5,8 +5,6 @@ import MainContents from '../components/MainContents';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
 const Home = () => {
-  const token = getLocalStorage({ name: TOKEN_NAME });
-
   return (
     <Layout>
       <Header />

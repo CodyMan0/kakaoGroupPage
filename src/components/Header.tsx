@@ -7,7 +7,9 @@ const Header = () => {
     <>
       <NavContainer>
         <Nav>
-          <Logo>몽땅 보내</Logo>
+          <Logo>
+            <Link to="/home">몽땅 보내</Link>
+          </Logo>
           <LoginButton>
             <Link to="/">로그인</Link>
           </LoginButton>
@@ -27,6 +29,7 @@ const NavContainer = styled.div`
 const Logo = styled.h1`
   font-size: 35px;
   font-family: 'Gaegu';
+  cursor: pointer;
 `;
 
 const Nav = styled.nav`
