@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { KAKAO_TOKEN_URL, LOGIN } from '../constants/config';
-import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
+import {
+  getLocalStorage,
+  setLocalStorage,
+  TOKEN_NAME,
+} from '../utils/localStorage';
 
 const KakaoRedirectHandler = () => {
   const navigator = useNavigate();
@@ -22,11 +26,10 @@ const KakaoRedirectHandler = () => {
       const response = fetch(requestUrl, requestHeaders)
         .then(res => res.json())
         .then(result => {
-          if (!getLocalStorage('token')) {
-            console.log(!getLocalStorage('token'));
-            localStorage.setItem('token', result.access_token);
+          if (!getLocalStorage({ name: TOKEN_NAME })) {
+            setLocalStorage({ name: TOKEN_NAME, value: result.access_token });
           }
-          navigator('/home');
+          if (getLocalStorage({ name: TOKEN_NAME })) navigator('/home');
         });
     };
     getRequest();
