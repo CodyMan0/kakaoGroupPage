@@ -1,4 +1,10 @@
-import React, { createContext, useState, useMemo, useContext } from 'react';
+import React, {
+  createContext,
+  useState,
+  useMemo,
+  useContext,
+  useEffect,
+} from 'react';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
 interface IsLoginedContextProps {
@@ -18,6 +24,7 @@ export const LoginProvider = ({ children }: IProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!getLocalStorage({ name: TOKEN_NAME })
   );
+  console.log('context', isLoggedIn);
   const value = useMemo(() => ({ isLoggedIn, setIsLoggedIn }), [isLoggedIn]);
 
   return (

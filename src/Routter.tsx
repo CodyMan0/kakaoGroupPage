@@ -9,6 +9,7 @@ import Group from './page/Group';
 function Routter() {
   const { isLoggedIn } = useContext(LoginContext);
   const navigator = useNavigate();
+
   useEffect(() => {
     if (!isLoggedIn) {
       navigator('/');
