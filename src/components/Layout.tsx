@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type Props = {
+export interface Props {
   children: JSX.Element | JSX.Element[];
-};
+}
 
 const Layout = ({ children }: Props) => {
   return <MainContainer>{children}</MainContainer>;
