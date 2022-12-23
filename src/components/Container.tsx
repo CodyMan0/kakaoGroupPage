@@ -1,6 +1,8 @@
+import React from 'react';
 import styled from 'styled-components';
+import { Props } from './Layout';
 
-const Container = ({ children }: any) => {
+const Container = ({ children }: Props) => {
   return (
     <MainContainer>
       <SubContainer>{children}</SubContainer>
