@@ -1,9 +1,20 @@
-import { createContext, useState, useMemo, useContext } from 'react';
+import React, { createContext, useState, useMemo, useContext } from 'react';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
-export const LoginContext = createContext<any>(null);
+interface IsLoginedContextProps {
+  isLoggedIn: boolean;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export const LoginProvider = ({ children }: any) => {
+interface IProviderProps {
+  children: React.ReactNode;
+}
+export const LoginContext = createContext<IsLoginedContextProps>({
+  isLoggedIn: false,
+  setIsLoggedIn: () => {},
+});
+
+export const LoginProvider = ({ children }: IProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!getLocalStorage({ name: TOKEN_NAME })
   );
@@ -13,5 +24,3 @@ export const LoginProvider = ({ children }: any) => {
     <LoginContext.Provider value={value}>{children}</LoginContext.Provider>
   );
 };
-
-export const useAuth = () => useContext(LoginContext);

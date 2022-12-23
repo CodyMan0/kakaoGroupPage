@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Layout = ({ children }: any) => {
+type Props = {
+  children: JSX.Element | JSX.Element[];
+};
+
+const Layout = ({ children }: Props) => {
   return <MainContainer>{children}</MainContainer>;
 };
 
