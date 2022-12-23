@@ -1,6 +1,9 @@
-import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useContext, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { KAKAO_TOKEN_URL, LOGIN } from '../constants/config';
+import { getRequest } from '../api/getAuthorization';
+import Container from '../components/Container';
+
 import {
   getLocalStorage,
   setLocalStorage,
@@ -10,32 +13,20 @@ import {
 const KakaoRedirectHandler = () => {
   const navigator = useNavigate();
   const code = new URL(location.href).searchParams.get('code');
-
-  const requestUrl = `${KAKAO_TOKEN_URL}?grant_type=authorization_code&client_id=${
-    import.meta.env.VITE_CLIENT_KEY
-  }&redirect_uri=${LOGIN.REDIRECT_URI}&code=${code}`;
-  const requestHeaders = {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-    },
+  const getTokenAndSendHome = () => {
+    getRequest(code).then(result => {
+      setLocalStorage({ name: TOKEN_NAME, value: result?.access_token });
+      navigator('/home');
+    });
   };
 
-  useEffect(() => {
-    const getRequest = () => {
-      const response = fetch(requestUrl, requestHeaders)
-        .then(res => res.json())
-        .then(result => {
-          if (!getLocalStorage({ name: TOKEN_NAME })) {
-            setLocalStorage({ name: TOKEN_NAME, value: result.access_token });
-          }
-          if (getLocalStorage({ name: TOKEN_NAME })) navigator('/home');
-        });
-    };
-    getRequest();
-  }, []);
+  getTokenAndSendHome();
 
-  return <div>로그인 중입니다.</div>;
+  return (
+    <Container>
+      <div>로딩중 입니다</div>
+    </Container>
+  );
 };
 
 export default KakaoRedirectHandler;
