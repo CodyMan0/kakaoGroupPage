@@ -1,7 +1,19 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import DropDown from './DropDown';
 
-const Header = () => {
+interface IsLoggedInProps {
+  isLoggedIn: boolean;
+}
+
+const Header = ({ isLoggedIn }: IsLoggedInProps) => {
+  const [isToggled, setTogged] = useState(false);
+
+  const clickHandler = () => {
+    setTogged(prev => !prev);
+  };
+
   return (
     <>
       <NavContainer>
@@ -9,9 +21,20 @@ const Header = () => {
           <Logo>
             <Link to="/">몽땅 보내</Link>
           </Logo>
-          <LoginButton>
-            <Link to="/signin">로그인</Link>
-          </LoginButton>
+          {isLoggedIn ? (
+            <UserInfoSection>
+              <DropDownButton onClick={clickHandler}>
+                마이 페이지
+              </DropDownButton>
+              {isToggled && <DropDown />}
+              <Div>사진</Div>
+              <Name>name님 환영합니다</Name>
+            </UserInfoSection>
+          ) : (
+            <LoginButton>
+              <Link to="/signin">로그인</Link>
+            </LoginButton>
+          )}
         </Nav>
       </NavContainer>
     </>
@@ -19,6 +42,34 @@ const Header = () => {
 };
 
 export default Header;
+
+const DropDownButton = styled.div`
+  position: relative;
+  margin-right: 50px;
+  cursor: pointer;
+`;
+
+const UserInfoSection = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  width: 300px;
+`;
+
+const Name = styled.p`
+  font-size: 16px;
+`;
+
+const Div = styled.div`
+  width: 30px;
+  background-color: aliceblue;
+`;
+
+const BtnBox = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 const NavContainer = styled.div`
   position: fixed;
   backdrop-filter: blur(10px);

@@ -6,12 +6,12 @@ import { LoginContext } from '../context/LoginContext';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
 const Home = () => {
-  const { setIsLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   if (!!getLocalStorage({ name: TOKEN_NAME })) setIsLoggedIn(true);
 
   return (
     <Layout>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <MainContents />
     </Layout>
   );

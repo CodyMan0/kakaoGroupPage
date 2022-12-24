@@ -7,13 +7,8 @@ const MainContents = () => {
   const { isLoggedIn } = useContext(LoginContext);
   const navigator = useNavigate();
 
-  console.log('Main', isLoggedIn);
   const clickHandler = () => {
-    if (!isLoggedIn) {
-      navigator('/signin');
-    } else {
-      navigator('/group');
-    }
+    isLoggedIn ? navigator('/group') : navigator('/signin');
   };
 
   return (
@@ -77,6 +72,6 @@ const Container = styled.div`
   gap: 34px;
   min-height: 800px;
   overflow: visible;
-  padding: 200px 0px 0px;
+  padding: 300px 0px 0px;
   width: 100%;
 `;

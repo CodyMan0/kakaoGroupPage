@@ -1,20 +1,14 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Layout from '../components/Layout';
+import { LoginContext } from '../context/LoginContext';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
 const Group = () => {
-  const token = getLocalStorage({ name: TOKEN_NAME });
-
-  // const fetchLists = async () => {
-  //   const response = await fetch('123');
-  //   return response.json();
-  // };
-
-  // const { data, error, isError, isLoading } = useQuery(['list'], fetchLists);
-
-  // console.log('react', data, isError, isLoading);
+  const navigator = useNavigate();
+  const { isLoggedIn } = useContext(LoginContext);
 
   const preventClose = (e: BeforeUnloadEvent) => {
     e.preventDefault();
@@ -22,9 +16,13 @@ const Group = () => {
   };
 
   const preventGoBack = () => {
-    history.pushState(null, '', location.href);
     alert('페이지를 벗어나면 데이터가 사라져요 ㅠ.ㅠ');
+    history.pushState(null, '', location.href);
   };
+
+  useEffect(() => {
+    !isLoggedIn && navigator('/');
+  }, [isLoggedIn]);
 
   useEffect(() => {
     (() => {
@@ -41,7 +39,7 @@ const Group = () => {
 
   return (
     <Layout>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <H1>단체 문자 페이지</H1>
     </Layout>
   );
