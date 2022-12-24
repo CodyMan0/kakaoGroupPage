@@ -95,7 +95,7 @@ Error generating stack: `+o.message+`
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-`,fo={BASE_URL:"https://kauth.kakao.com",REDIRECT_URI:"http://127.0.0.1:5173/kakaoGroupPage/oauth/callback/kakao"},P0=`${fo.BASE_URL}/oauth/authorize?client_id=368d8790353ff9a0e919b3e605c8cfff&redirect_uri=${fo.REDIRECT_URI}&response_type=code`,_0=`${fo.BASE_URL}/oauth/token`,O0=()=>Xe(Pp,{children:[Xe(A0,{children:[T($0,{children:"\uB85C\uADF8\uC778"}),T(R0,{children:T(co,{to:"/",children:"\uB4A4\uB85C \uAC00\uAE30"})}),T(T0,{children:"\uB85C\uACE0\uB098 \uC774\uBBF8\uC9C0 \uC0BD\uC785"})]}),T(L0,{href:P0,children:T(N0,{src:"./kakaoLargeLogin.png",alt:"kakaoLoginImg"})})]}),R0=b.button``,L0=b.a`
+`,fo={BASE_URL:"https://kauth.kakao.com",REDIRECT_URI:"https://codyman0.github.io/kakaoGroupPage/oauth/callback/kakao"},P0=`${fo.BASE_URL}/oauth/authorize?client_id=368d8790353ff9a0e919b3e605c8cfff&redirect_uri=${fo.REDIRECT_URI}&response_type=code`,_0=`${fo.BASE_URL}/oauth/token`,O0=()=>Xe(Pp,{children:[Xe(A0,{children:[T($0,{children:"\uB85C\uADF8\uC778"}),T(R0,{children:T(co,{to:"/",children:"\uB4A4\uB85C \uAC00\uAE30"})}),T(T0,{children:"\uB85C\uACE0\uB098 \uC774\uBBF8\uC9C0 \uC0BD\uC785"})]}),T(L0,{href:P0,children:T(N0,{src:"./kakaoLargeLogin.png",alt:"kakaoLoginImg"})})]}),R0=b.button``,L0=b.a`
   margin: 0 auto;
   margin-left: 50px;
   width: 90%;
