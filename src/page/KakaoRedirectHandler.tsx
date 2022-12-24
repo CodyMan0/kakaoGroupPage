@@ -1,22 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
-import { useContext, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getRequest } from '../api/getAuthorization';
+import { LoginContext } from '../context/LoginContext';
+import { setLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 import Container from '../components/Container';
 
-import {
-  getLocalStorage,
-  setLocalStorage,
-  TOKEN_NAME,
-} from '../utils/localStorage';
-
 const KakaoRedirectHandler = () => {
+  const { isLoggedIn } = useContext(LoginContext);
+  console.log('kakao', isLoggedIn);
   const navigator = useNavigate();
   const code = new URL(location.href).searchParams.get('code');
   const getToken = () => {
     getRequest(code).then(result => {
       setLocalStorage({ name: TOKEN_NAME, value: result?.access_token });
-      navigator('/home');
+      navigator('/');
     });
   };
 

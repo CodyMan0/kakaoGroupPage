@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,10 +7,10 @@ const Header = () => {
       <NavContainer>
         <Nav>
           <Logo>
-            <Link to="/home">몽땅 보내</Link>
+            <Link to="/">몽땅 보내</Link>
           </Logo>
           <LoginButton>
-            <Link to="/">로그인</Link>
+            <Link to="/signin">로그인</Link>
           </LoginButton>
         </Nav>
       </NavContainer>

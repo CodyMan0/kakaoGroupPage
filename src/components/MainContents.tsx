@@ -1,8 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoginContext } from '../context/LoginContext';
 import styled from 'styled-components';
 
 const MainContents = () => {
+  const { isLoggedIn } = useContext(LoginContext);
+  const navigator = useNavigate();
+
+  console.log('Main', isLoggedIn);
+  const clickHandler = () => {
+    if (!isLoggedIn) {
+      navigator('/signin');
+    } else {
+      navigator('/group');
+    }
+  };
+
   return (
     <Container>
       <SubContainer>
@@ -10,7 +23,7 @@ const MainContents = () => {
         <FirstHeading>기능을 이용하는 방법</FirstHeading>
         <SecondHeading>일일 100명 한번에 최대 20명</SecondHeading>
         <SecondHeading>바로 시작해보세요</SecondHeading>
-        <Box>
+        <Box onClick={clickHandler}>
           <Link to="/group">단체 문자 전송 시작하기</Link>
         </Box>
       </SubContainer>

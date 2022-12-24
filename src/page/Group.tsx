@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
+import styled from 'styled-components';
 import Header from '../components/Header';
 import Layout from '../components/Layout';
 import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
@@ -42,8 +42,22 @@ const Group = () => {
   return (
     <Layout>
       <Header />
+      <H1>단체 문자 페이지</H1>
     </Layout>
   );
 };
 
 export default Group;
+
+const H1 = styled.div`
+  place-content: center flex-start;
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 34px;
+  min-height: 800px;
+  overflow: visible;
+  padding: 200px 0px 0px;
+  width: 100%;
+  font-size: 50px;
+`;
