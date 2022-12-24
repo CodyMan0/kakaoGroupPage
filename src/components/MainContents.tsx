@@ -70,7 +70,7 @@ const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   gap: 34px;
-  min-height: 800px;
+  min-height: 950px;
   overflow: visible;
   padding: 300px 0px 0px;
   width: 100%;

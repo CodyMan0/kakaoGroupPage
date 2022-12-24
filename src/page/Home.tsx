@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { RecoilState, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { getUserInfo } from '../api/ApiService';
 import { MyInfo, myState } from '../atom/store';
 import Header from '../components/Header';
@@ -10,13 +10,15 @@ import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
 const Home = () => {
   const [myInfo, setMyInfo] = useRecoilState<MyInfo>(myState);
-  console.log('home', myInfo);
   const token = getLocalStorage({ name: TOKEN_NAME });
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
-  if (!!getLocalStorage({ name: TOKEN_NAME })) setIsLoggedIn(true);
 
+  console.log(myInfo);
   const getUserInfoData = () => {
-    getUserInfo(token).then(result => setMyInfo(result));
+    getUserInfo(token).then(result => {
+      setMyInfo(result);
+      if (token) setIsLoggedIn(true);
+    });
   };
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <Header isLoggedIn={isLoggedIn} />
+      <Header isLoggedIn={isLoggedIn} name={myInfo?.name} />
       <MainContents />
     </Layout>
   );

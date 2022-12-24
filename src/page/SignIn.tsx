@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Container from '../components/Container';
-import { KAKAO_AUTH_URL } from '../constants/config';
+import { KAKAO_AUTH_URL } from '../config';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
