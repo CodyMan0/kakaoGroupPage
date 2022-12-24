@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IProps, MyInfo } from '../atom/store';
 
-const DropDown = () => {
+const DropDown = ({ myInfo }: IProps) => {
+  const { name, email } = myInfo;
+
   return (
     <Container>
-      <ImgContainer>img</ImgContainer>
+      <ImgContainer>{name}</ImgContainer>
+      <div>{email}</div>
       <LogOutButton>로그아웃</LogOutButton>
     </Container>
   );

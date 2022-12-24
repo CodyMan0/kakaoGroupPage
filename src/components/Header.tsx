@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { MyInfo, myState } from '../atom/store';
 import DropDown from './DropDown';
 
 interface IsLoggedInProps {
@@ -8,6 +10,9 @@ interface IsLoggedInProps {
 }
 
 const Header = ({ isLoggedIn }: IsLoggedInProps) => {
+  const myInfo = useRecoilValue<MyInfo>(myState);
+  const { name } = myInfo;
+
   const [isToggled, setTogged] = useState(false);
 
   const clickHandler = () => {
@@ -26,9 +31,10 @@ const Header = ({ isLoggedIn }: IsLoggedInProps) => {
               <DropDownButton onClick={clickHandler}>
                 마이 페이지
               </DropDownButton>
-              {isToggled && <DropDown />}
-              <Div>사진</Div>
-              <Name>name님 환영합니다</Name>
+              {isToggled && <DropDown myInfo={myInfo} />}
+              <Name>
+                <Strong>{name}</Strong>님 환영합니다!
+              </Name>
             </UserInfoSection>
           ) : (
             <LoginButton>
@@ -43,9 +49,15 @@ const Header = ({ isLoggedIn }: IsLoggedInProps) => {
 
 export default Header;
 
+const Strong = styled.strong`
+  font-weight: 800;
+`;
+
 const DropDownButton = styled.div`
   position: relative;
   margin-right: 50px;
+  font-size: 20px;
+  font-family: 'Gaegu';
   cursor: pointer;
 `;
 
@@ -53,16 +65,11 @@ const UserInfoSection = styled.div`
   display: flex;
   justify-content: center;
   gap: 5px;
-  width: 300px;
+  width: 350px;
 `;
 
 const Name = styled.p`
   font-size: 16px;
-`;
-
-const Div = styled.div`
-  width: 30px;
-  background-color: aliceblue;
 `;
 
 const BtnBox = styled.div`

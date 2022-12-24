@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import SignIn from './page/SignIn';
 import KakaoRedirectHandler from './page/KakaoRedirectHandler';
+import SignIn from './page/SignIn';
 import Home from './page/Home';
 import Group from './page/Group';
 

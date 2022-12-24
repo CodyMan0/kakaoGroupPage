@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
 import { LoginProvider } from './context/LoginContext';
@@ -13,9 +14,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <GlobalStyle />
     <GlobalFonts />
     <ThemeProvider theme={theme}>
-      <LoginProvider>
-        <App />
-      </LoginProvider>
+      <RecoilRoot>
+        <LoginProvider>
+          <App />
+        </LoginProvider>
+      </RecoilRoot>
     </ThemeProvider>
   </React.StrictMode>
 );
