@@ -115,7 +115,7 @@ Error generating stack: `+o.message+`
 `,$0=_e.div`
   width: 100%;
   margin: 0 auto;
-`,A0=async e=>{console.log("getRequest");const t=`${_0}?grant_type=authorization_code&client_id=368d8790353ff9a0e919b3e605c8cfff&redirect_uri=${ao.REDIRECT_URI}&code=${e}`,r=await fetch(t,{method:"POST"});if(r.ok===!0)return r.json()},Js="token",z0=({name:e,value:t})=>{localStorage.setItem(e,t)},Pp=({name:e})=>localStorage.getItem(e),D0=()=>{const e=Zs(),t=new URL(location.href).searchParams.get("code");return(()=>{A0(t).then(r=>{z0({name:Js,value:r==null?void 0:r.access_token}),e("/home")})})(),A(Ep,{children:A("div",{children:"\uB85C\uB529\uC911 \uC785\uB2C8\uB2E4"})})},_p=()=>A(Ys,{children:A(I0,{children:Ct(F0,{children:[A(M0,{children:A(Fu,{to:"/home",children:"\uBABD\uB545 \uBCF4\uB0B4"})}),A(j0,{children:A(Fu,{to:"/",children:"\uB85C\uADF8\uC778"})})]})})}),I0=_e.div`
+`,A0=async e=>{const t=`${_0}?grant_type=authorization_code&client_id=368d8790353ff9a0e919b3e605c8cfff&redirect_uri=${ao.REDIRECT_URI}&code=${e}`,r=await fetch(t,{method:"POST"});if(r.ok===!0)return r.json()},Js="token",z0=({name:e,value:t})=>{localStorage.setItem(e,t)},Pp=({name:e})=>localStorage.getItem(e),D0=()=>{const e=Zs(),t=new URL(location.href).searchParams.get("code");return(()=>{A0(t).then(r=>{z0({name:Js,value:r==null?void 0:r.access_token}),e("/home")})})(),A(Ep,{children:A("div",{children:"\uB85C\uB529\uC911 \uC785\uB2C8\uB2E4"})})},_p=()=>A(Ys,{children:A(I0,{children:Ct(F0,{children:[A(M0,{children:A(Fu,{to:"/home",children:"\uBABD\uB545 \uBCF4\uB0B4"})}),A(j0,{children:A(Fu,{to:"/",children:"\uB85C\uADF8\uC778"})})]})})}),I0=_e.div`
   position: fixed;
   backdrop-filter: blur(10px);
   width: 100%;
