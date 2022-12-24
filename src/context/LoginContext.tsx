@@ -24,7 +24,7 @@ export const LoginProvider = ({ children }: IProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!getLocalStorage({ name: TOKEN_NAME })
   );
-  console.log('context', isLoggedIn);
+
   const value = useMemo(() => ({ isLoggedIn, setIsLoggedIn }), [isLoggedIn]);
 
   return (

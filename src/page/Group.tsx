@@ -9,7 +9,6 @@ import { getLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 const Group = () => {
   const navigator = useNavigate();
   const { isLoggedIn } = useContext(LoginContext);
-
   const preventClose = (e: BeforeUnloadEvent) => {
     e.preventDefault();
     e.returnValue = ''; // chrome에서는 설정이 필요해서 넣은 코드

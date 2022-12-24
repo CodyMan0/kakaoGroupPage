@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getRequest } from '../api/getAuthorization';
+import { getRequest } from '../api/ApiService';
 import { LoginContext } from '../context/LoginContext';
 import { setLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 import Container from '../components/Container';
 
 const KakaoRedirectHandler = () => {
-  const { isLoggedIn } = useContext(LoginContext);
-  console.log('kakao', isLoggedIn);
   const navigator = useNavigate();
   const code = new URL(location.href).searchParams.get('code');
   const getToken = () => {
