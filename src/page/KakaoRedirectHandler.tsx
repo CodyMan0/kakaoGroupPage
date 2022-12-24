@@ -13,14 +13,14 @@ import {
 const KakaoRedirectHandler = () => {
   const navigator = useNavigate();
   const code = new URL(location.href).searchParams.get('code');
-  const getToken = () => {
+  const getTokenAndSendHome = () => {
     getRequest(code).then(result => {
       setLocalStorage({ name: TOKEN_NAME, value: result?.access_token });
       navigator('/home');
     });
   };
 
-  getToken();
+  getTokenAndSendHome();
 
   return (
     <Container>
