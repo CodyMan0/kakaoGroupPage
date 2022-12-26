@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
-import { IProps, MyInfo } from '../atom/store';
+import { LoginContext } from '../context/LoginContext';
+import { deleteLocalStorage, TOKEN_NAME } from '../utils/localStorage';
 
-const DropDown = ({ myInfo }: IProps) => {
-  const { name, email } = myInfo;
+interface IsToggled {
+  isToggled: boolean;
+}
+
+const DropDown = () => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
+
+  const deleteToken = () => {
+    deleteLocalStorage({ name: TOKEN_NAME });
+    setIsLoggedIn(false);
+  };
 
   return (
     <Container>
-      <ImgContainer>{name}</ImgContainer>
-      <div>{email}</div>
-      <LogOutButton>로그아웃</LogOutButton>
+      <LogOutButton onClick={deleteToken}>로그아웃</LogOutButton>
     </Container>
   );
 };
@@ -18,25 +26,14 @@ export default DropDown;
 
 const Container = styled.div`
   position: absolute;
-  top: 4rem;
-  right: 11rem;
-  width: 200px;
-  height: 150px;
-  background-color: pink;
+  top: 2rem;
+  right: 2rem;
+  width: max-content;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  gap: 20px;
-`;
-const ImgContainer = styled.div`
-  width: 80px;
-  height: 80px;
-  background-color: ghostwhite;
-  margin: 0 auto;
 `;
 
 const LogOutButton = styled.button`
-  align-items: center;
   background-color: rgb(38, 112, 255);
   border-radius: 10px;
   padding: 10px 30px 8px;

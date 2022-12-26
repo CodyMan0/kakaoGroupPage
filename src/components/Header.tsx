@@ -4,17 +4,15 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { MyInfo, myState } from '../atom/store';
 import DropDown from './DropDown';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 interface IsLoggedInProps {
   isLoggedIn: boolean;
+  name: string;
 }
 
-const Header = ({ isLoggedIn }: IsLoggedInProps) => {
-  const myInfo = useRecoilValue<MyInfo>(myState);
-  const { name } = myInfo;
-
+const Header = ({ isLoggedIn, name }: IsLoggedInProps) => {
   const [isToggled, setTogged] = useState(false);
-
   const clickHandler = () => {
     setTogged(prev => !prev);
   };
@@ -27,18 +25,31 @@ const Header = ({ isLoggedIn }: IsLoggedInProps) => {
             <Link to="/">몽땅 보내</Link>
           </Logo>
           {isLoggedIn ? (
-            <UserInfoSection>
-              <DropDownButton onClick={clickHandler}>
-                마이 페이지
-              </DropDownButton>
-              {isToggled && <DropDown myInfo={myInfo} />}
+            <UserInfoSection onClick={clickHandler}>
+              {isToggled && <DropDown />}
               <Name>
-                <Strong>{name}</Strong>님 환영합니다!
+                <Strong>{name}</Strong>
               </Name>
+              <DropDownButton>
+                {!isToggled ? (
+                  <Icon>
+                    <MdKeyboardArrowDown></MdKeyboardArrowDown>
+                  </Icon>
+                ) : (
+                  <Icon>
+                    <MdKeyboardArrowUp></MdKeyboardArrowUp>
+                  </Icon>
+                )}
+              </DropDownButton>
             </UserInfoSection>
           ) : (
             <LoginButton>
-              <Link to="/signin">로그인</Link>
+              <Link
+                to="/signin
+              "
+              >
+                로그인
+              </Link>
             </LoginButton>
           )}
         </Nav>
@@ -48,6 +59,10 @@ const Header = ({ isLoggedIn }: IsLoggedInProps) => {
 };
 
 export default Header;
+
+const Icon = styled.div`
+  text-align: center;
+`;
 
 const Strong = styled.strong`
   font-weight: 800;
@@ -62,19 +77,17 @@ const DropDownButton = styled.div`
 `;
 
 const UserInfoSection = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 350px;
+  cursor: pointer;
 `;
 
-const Name = styled.p`
+const Name = styled.div`
   font-size: 16px;
-`;
-
-const BtnBox = styled.div`
-  display: flex;
-  gap: 10px;
 `;
 
 const NavContainer = styled.div`

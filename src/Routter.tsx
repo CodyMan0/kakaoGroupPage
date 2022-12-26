@@ -3,6 +3,7 @@ import KakaoRedirectHandler from './page/KakaoRedirectHandler';
 import SignIn from './page/SignIn';
 import Home from './page/Home';
 import Group from './page/Group';
+import { useContext } from 'react';
 
 function Routter() {
   return (

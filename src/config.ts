@@ -12,8 +12,10 @@ export const LOGIN = {
 
 export const KAKAO_AUTH_URL = `${HOST.AUTH_URL}/oauth/authorize?client_id=${
   import.meta.env.VITE_CLIENT_KEY
-}&redirect_uri=${LOGIN.REDIRECT_URI}&response_type=code`;
+}&redirect_uri=${LOGIN.REDIRECT_URI}&response_type=code&scope=friends`;
 
 export const KAKAO_TOKEN_URL = `${HOST.AUTH_URL}/oauth/token`;
 
 export const KAKAO_GET_MY_INFO_URL = `${HOST.USER_URL}/v2/user/me`;
+
+export const KAKAO_GET_FRIENDS_LIST = `${HOST.USER_URL}/v1/api/talk/friends`;

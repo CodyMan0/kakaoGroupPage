@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { KAKAO_TOKEN_URL, LOGIN } from '../constants/config';
+import { KAKAO_TOKEN_URL, LOGIN } from '../config';
 
 export interface Status {
   data: string;
