@@ -1,4 +1,3 @@
-import { isConstValueNode } from 'graphql';
 import {
   KAKAO_GET_FRIENDS_LIST,
   KAKAO_GET_MY_INFO_URL,
