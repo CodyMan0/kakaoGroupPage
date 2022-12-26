@@ -33,6 +33,8 @@ const Group = () => {
   const { isLoggedIn } = useContext(LoginContext);
   const [myInfo, setMyInfo] = useRecoilState<MyInfo>(myState);
   const token = getLocalStorage({ name: TOKEN_NAME });
+  const uuid = friendLists?.elements?.map(el => el.uuid);
+
   const navigator = useNavigate();
 
   const getFriendsListHandler = () => {
@@ -57,8 +59,7 @@ const Group = () => {
             <FriendsItem key={idx} friendList={friendList} />
           ))}
         </Container>
-        <MessageForm />
-        <Button>보내기</Button>
+        <MessageForm uuid={uuid} />
       </SubLayout>
     </Layout>
   );
@@ -71,15 +72,9 @@ const Container = styled.div`
   padding: 40px;
   min-height: 100vh;
   overflow-y: scroll;
-`;
-
-const Button = styled.button`
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-  width: 100px;
-  height: 50px;
-  background-color: lightcoral;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 50%) 0px 0px 5px;
+  backdrop-filter: blur(30px);
 `;
 
 const SubLayout = styled.div`

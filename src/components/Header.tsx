@@ -17,6 +17,8 @@ const Header = ({ isLoggedIn, name }: IsLoggedInProps) => {
     setTogged(prev => !prev);
   };
 
+  console.log('header 동기1', name);
+
   return (
     <>
       <NavContainer>

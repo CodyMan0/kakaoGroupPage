@@ -13,10 +13,10 @@ const Home = () => {
   const token = getLocalStorage({ name: TOKEN_NAME });
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
 
-  console.log(myInfo);
+  console.log('home동기1', myInfo);
   const getUserInfoData = () => {
     getUserInfo(token).then(result => {
-      setMyInfo(result);
+      setMyInfo(() => result);
       if (token) setIsLoggedIn(true);
     });
   };
