@@ -6,10 +6,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      KAKAO_CLIENT_KEY: ${{KAKAO_CLIENT_KEY}}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        run: echo $KAKAO_CLIENT_KEY
 
       - name: Node.js 16.x
         uses: actions/setup-node@v3
@@ -25,5 +28,5 @@ jobs:
       - name: publish Project
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.KAKAO_CLIENT_KEY }} ,${{ secrets.KAKAO_WEB_PAGE_KEY }}
+          github_token: ${{ secrets.KAKAO_WEB_PAGE_KEY }}
           publish_dir: ./dist
