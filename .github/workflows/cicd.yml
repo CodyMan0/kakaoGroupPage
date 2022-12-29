@@ -16,14 +16,13 @@ jobs:
         with:
           node-version: 16.x
 
-       - name: Setting environment variables
+      - name: Setting environment variables
         run: echo "VITE_CLIENT_KEY=$KAKAO_CLIENT_KEY" >> .env
         env:
-          KAKAO_CLIENT_KEY: ${{secrets.KAKAO_CLIENT_KEY}}
-
+        KAKAO_CLIENT_KEY: ${{ secrets.KAKAO_CLIENT_KEY }}
 
       - name: InstallDependencies
-        run: npm install 
+        run: npm install
 
       - name: Build Project
         run: npm run build
