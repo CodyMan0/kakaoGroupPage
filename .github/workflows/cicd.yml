@@ -19,7 +19,7 @@ jobs:
       - name: Setting environment variables
         run: echo "VITE_CLIENT_KEY=$KAKAO_CLIENT_KEY" >> .env
         env:
-        KAKAO_CLIENT_KEY: ${{ secrets.KAKAO_CLIENT_KEY }}
+          KAKAO_CLIENT_KEY: ${{ secrets.KAKAO_CLIENT_KEY }}
 
       - name: InstallDependencies
         run: npm install
