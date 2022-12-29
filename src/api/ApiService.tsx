@@ -55,7 +55,6 @@ export const getFriendsList = async (
   const response = await fetch(requestUrl, requestHeaders);
 
   const result = await response.json();
-  console.log('getfri', result);
   return result;
 };
 
@@ -76,13 +75,8 @@ export const sendMessage = async ({
       Authorization: `Bearer ${token}`,
     },
   };
-  console.log('req', requestUrl);
 
   const response = await fetch(requestUrl, requestHeaders);
-
-  console.log('res', response);
   const result = await response.json();
-
-  console.log('send', result);
   return result;
 };
