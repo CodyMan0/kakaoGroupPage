@@ -30,6 +30,7 @@ export interface Elements {
 
 const Group = () => {
   const [friendLists, setFriendLists] = useState<FriendList>();
+  console.log(friendLists);
   const { isLoggedIn } = useContext(LoginContext);
   const [myInfo, setMyInfo] = useRecoilState<MyInfo>(myState);
   const token = getLocalStorage({ name: TOKEN_NAME });
@@ -56,7 +57,9 @@ const Group = () => {
       <SubLayout>
         <Container>
           {friendLists?.elements?.map((friendList, idx) => (
-            <FriendsItem key={idx} friendList={friendList} />
+            <>
+              <FriendsItem key={idx} friendList={friendList} />
+            </>
           ))}
         </Container>
         <MessageForm uuid={uuid} />

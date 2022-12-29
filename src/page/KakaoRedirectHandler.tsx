@@ -11,6 +11,7 @@ const KakaoRedirectHandler = () => {
 
   const getToken = () => {
     getRequest(code).then(result => {
+      console.log(result);
       setLocalStorage({ name: TOKEN_NAME, value: result?.access_token });
       navigator('/');
     });

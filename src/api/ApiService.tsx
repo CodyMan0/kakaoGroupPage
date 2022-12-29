@@ -46,7 +46,7 @@ export const getUserInfo = async (
 export const getFriendsList = async (
   token: string | null | undefined
 ): Promise<any> => {
-  const requestUrl = `${KAKAO_GET_FRIENDS_LIST}?friend_order=favorite&limit=100&order=asc`;
+  const requestUrl = `${KAKAO_GET_FRIENDS_LIST}?offset=0&limit=10&order=asc`;
   const requestHeaders = {
     headers: {
       Authorization: `Bearer ${token}`,
