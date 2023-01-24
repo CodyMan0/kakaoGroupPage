@@ -1,5 +1,7 @@
 # kakaoGroupPage
 
+## 기간 : 2022.12.21 ~ 2022.12.29
+
 ## CD 적용한 베포 링크
 [웹페이지 보러가기](https://codyman0.github.io/kakaoGroupPage/)
 
